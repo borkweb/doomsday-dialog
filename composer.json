@@ -1,0 +1,15 @@
+{
+	"name": "borkweb/doomsday-dialog",
+	"description": "This is a playground for some Symfony Console stuff",
+	"version": "0.1",
+	"license": "MIT",
+	"require": {
+		"symfony/console": "^4.1",
+		"symfony/process": "^4.1"
+	},
+	"autoload": {
+		"psr-4": {
+			"DoomsdayDialog\\": "src/"
+		}
+	}
+}

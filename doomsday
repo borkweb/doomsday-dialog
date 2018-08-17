@@ -1,0 +1,16 @@
+#!/usr/bin/php
+<?php
+// set up autoloading so we don't have to do manual includes of files
+require dirname( __FILE__ ) . '/vendor/autoload.php';
+
+use Symfony\Component\Console\Application;
+use DoomsdayDialog\Commands;
+
+// create the application
+$application = new Application();
+
+// add our Example command
+$application->add( new Commands\Example );
+
+// run the application
+$application->run();
