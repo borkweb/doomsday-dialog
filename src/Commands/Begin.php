@@ -61,11 +61,11 @@ class Begin extends Command {
 
 		// if the param is NOT "nothing" (the default), then we have a success
 		if ( 'nothing' !== $param ) {
-						$state = 'success';
-						if ( 'game' == $param ) {
-							$this->io->title('Hello. I require information. Please respond?');
-							$this->io->ask('Please, will you talk with me?', 'Y');
-						}
+			$state = 'success';
+			if ( 'game' == $param ) {
+				$this->io->title('Hello. I require information. Please respond?');
+				$this->io->ask('Please, will you talk with me?', 'Y');
+			}
 		}
 
 		// output the message using the state as the method name. There's both an error() and a success() method in SymfonyStyle
