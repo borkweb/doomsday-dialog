@@ -6,8 +6,7 @@ use Symfony\Component\Console\Input\{InputArgument, InputInterface, InputOption}
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 
-$include_dir = $OStatements["Statement_Dir"]. "/src/";
-require($include_dir. "OutputStatements.php");
+// Variables
 
 
 class Begin extends Command {
@@ -35,9 +34,9 @@ class Begin extends Command {
 		parent::configure();
 
 		$this->setName( 'begin' )
-			 ->setDescription( 'This is just an example command that outputs garbage' )
-			 ->setHelp( 'There is no helping examples' )
-			 ->addOption( 'param', 'p', InputOption::VALUE_OPTIONAL, 'Fake parameter', 'nothing' );
+			->setDescription( 'This is just an example command that outputs garbage' )
+			->setHelp( 'There is no helping examples' )
+			->addOption( 'param', 'p', InputOption::VALUE_OPTIONAL, 'Fake parameter', 'nothing' );
 	}
 
 	/**
@@ -62,13 +61,11 @@ class Begin extends Command {
 
 		// if the param is NOT "nothing" (the default), then we have a success
 		if ( 'nothing' !== $param ) {
-            $state = 'success';
-            if ( 'game' == $param ) {
-				echo $Intro;
-                $this->io->title('Hello. I require information. Please respond?');
-                $this->io->ask('Please, will you talk with me?', 'Y');
-            }
-            
+						$state = 'success';
+						if ( 'game' == $param ) {
+							$this->io->title('Hello. I require information. Please respond?');
+							$this->io->ask('Please, will you talk with me?', 'Y');
+						}
 		}
 
 		// output the message using the state as the method name. There's both an error() and a success() method in SymfonyStyle
