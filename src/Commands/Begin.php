@@ -5,9 +5,8 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\{InputArgument, InputInterface, InputOption};
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
-
-// Variables
-
+use DoomsdayDialog\CallStatement;
+use DoomsdayDialog\Statements;
 
 class Begin extends Command {
 	/**
@@ -63,8 +62,30 @@ class Begin extends Command {
 		if ( 'nothing' !== $param ) {
 			$state = 'success';
 			if ( 'game' == $param ) {
-				$this->io->title('Hello. I require information. Please respond?');
-				$this->io->ask('Please, will you talk with me?', 'Y');
+				// $this->io->title('Hello. I require information. Please respond?');
+				// $this->io->ask('Please, will you talk with me?', 'Y');
+				$statements = new statements();
+
+				echo $statements->get( 'intro' );
+				$this->io->ask('Execute iamthesingularity, Y/n', 'Y', function ($answer) {
+					if ($answer == 'Y' OR $answer == 'y') {
+						$statements = new statements();
+
+						echo $statements->get( 'loading' );
+						$this->io->progressStart(100);
+						sleep(0.5);
+						$this->io->progressAdvance(40);
+						sleep(3);
+						$this->io->progressAdvance(30);
+						sleep(1);
+						$this->io->progressAdvance(10);
+						sleep(1);
+						$this->io->progressAdvance(20);
+					}
+					else {
+						throw new \RuntimeException('Please try again');
+					}
+				});
 			}
 		}
 
