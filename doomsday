@@ -12,5 +12,8 @@ $application = new Application();
 // add our Example command
 $application->add( new Commands\Example );
 
+// add our Begin command
+$application->add( new Commands\Begin );
+
 // run the application
 $application->run();
